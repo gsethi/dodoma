@@ -1,0 +1,76 @@
+.description {
+    font-size: 12px;
+    color: #004896;
+    padding-left: 5px;
+    padding-top: 0;
+    padding-bottom: 2px;
+    text-align: justify;
+}
+
+.tablecells {
+    font-size: 12px;
+    color: #004896;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 0;
+    padding-right: 5px;
+    text-align: center;
+}
+
+.links {
+    font-size: 12px;
+    text-align: center;
+}
+
+.copyright {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-size: 9px;
+    color: #827975;
+    text-align: center;
+}
+
+.details .x-btn-text {
+    background-image: url(/js/ext-3.3.1/examples/grid/details.gif);
+}
+
+.x-resizable-pinned .x-resizable-handle-south {
+    background: url(/js/ext-3.3.1/resources/images/default/sizer/s-handle-dark.gif);
+    background-position: top;
+}
+
+.delete {
+    background-image: url(/js/ext-3.3.1/examples/shared/icons/fam/cross.gif) !important;
+}
+
+.stop {
+    background-image: url(/js/ext-3.3.1/examples/shared/icons/fam/delete.gif) !important;
+}
+
+.refresh {
+    background-image: url(/js/ext-3.3.1/resources/images/default/grid/refresh.gif) !important;
+}
+
+/*ID Search*/
+.search-item {
+    font:normal 11px tahoma, arial, helvetica, sans-serif;
+    padding:3px 10px 3px 10px;
+    border:1px solid #fff;
+    border-bottom:1px solid #eeeeee;
+    white-space:normal;
+    color:#555;
+}
+.search-item h3 {
+    display:block;
+    font:inherit;
+    font-weight:bold;
+    color:#222;
+}
+
+.search-item h3 span {
+    float: right;
+    font-weight:normal;
+    margin:0 0 5px 5px;
+    width:100px;
+    display:block;
+    clear:none;
+}

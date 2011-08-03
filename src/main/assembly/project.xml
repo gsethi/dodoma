@@ -1,0 +1,23 @@
+<assembly>
+  <id>project</id>
+  <formats>
+    <format>tar.gz</format>
+    <format>tar.bz2</format>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+    <fileSet>
+      <directory>.</directory>
+      <outputDirectory></outputDirectory>
+      <useDefaultExcludes>true</useDefaultExcludes>
+      <excludes>
+        <exclude>**/target/**</exclude>
+        <exclude>**/.svn/**</exclude>
+        <exclude>*.iml</exclude>
+        <exclude>*.ipr</exclude>
+        <exclude>*.iws</exclude>
+      </excludes>
+    </fileSet>
+  </fileSets>
+</assembly>
+

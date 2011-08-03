@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>Domain-Domain Mapper (DoDoMa)</title>
+    <link rel="shortcut icon" href="./images/isbfavicon.ico" type="image/x-icon"/>
+
+    <link rel="stylesheet" type="text/css" href="./js/ext-3.3.1/resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="./js/ext-3.3.1/examples/shared/examples.css"/>
+    <link rel="stylesheet" type="text/css" href="./js/ext-3.3.1/resources/css/xtheme-gray.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/addama-2.1/jobs.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/stylesheet.css"/>
+
+    <!-- TODO: Reduce debug -->
+    <script type="text/javascript" src="./js/ext-3.3.1/adapter/ext/ext-base-debug.js"></script>
+    <script type="text/javascript" src="./js/ext-3.3.1/ext-all-debug.js"></script>
+
+    <script type="text/javascript" src="./js/ext-3.3.1/examples/ux/RowExpander.js"></script>
+
+    <script type="text/javascript" src="./js/addama-2.1/dateFormatting.js"></script>
+    <script type="text/javascript" src="./js/addama-2.1/console_handling.js"></script>
+    <script type="text/javascript" src="./js/addama-2.1/jobs.js"></script>
+
+    <script type="text/javascript" src="./js/ext-3.3.1-guid/Ext.ux.GUID.js"></script>
+    <script type="text/javascript" src="./js/user_cookie.js"></script>
+    <script type="text/javascript" src="./js/jobs_latest.js"></script>
+    <script type="text/javascript" src="./js/jobs_grid.js"></script>
+    <script type="text/javascript" src="./js/jobs_form.js"></script>
+    <script type="text/javascript" src="./js/biomart_search_by_gene.js"></script>
+    <script type="text/javascript" src="./js/viewport.js"></script>
+    <script type="text/javascript">
+        Ext.BLANK_IMAGE_URL = './js/ext-3.3.1/resources/images/gray/s.gif';
+    </script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22129310-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+<body>
+<div id="c_banner">
+    <a href="http://www.systemsbiology.org" target="_blank">
+        <img src="/images/banner.png" alt="Institute for Systems Biology"/>
+    </a>
+</div>
+<div id="c_description" class="description">
+    DoDoMa is a tool that automatically identifies transcription factors with matching DNA binding domains, and
+    returns all associated position weight matrix (PWM) identifiers from JASPAR, TRANSFAC, and UniPROBE databases.&nbsp;&nbsp;
+    <a href="/downloads/transfac_and_jaspar_analysis_web.zip" target="_blank"><b>Download Preprocessed Analysis</b></a>
+</div>
+
+<div id="c_main">
+    <div id="c_example_ids">
+        Search with these example Uniprot IDs:&nbsp;
+        <a href="#" onclick="return selectId('P11474');">P11474</a>,&nbsp;
+        <a href="#" onclick="return selectId('Q9UMQ3');">Q9UMQ3</a>
+        &nbsp;or <a href="#" id="c_search_biomart">Lookup Uniprot IDs by Gene Symbol (biomart.org)</a>
+    </div>
+
+    <div id="c_jobs_form"></div>
+
+    <div id="c_latest_job"></div>
+
+    <div id="c_jobs_grid"></div>
+</div>
+
+<div id="c_footer" class="copyright">&copy; 2011, <a href="http://systemsbiology.org" target="_blank">Institute for
+    Systems Biology</a>, All Rights Reserved&nbsp;&nbsp;&nbsp;&nbsp;
+    Powered by <a href="http://addama.org" target="_blank">Addama</a>&nbsp;&nbsp;&nbsp;
+    <a href="http://code.google.com/p/cancerregulome/wiki/Tool_Dodoma" target="_blank">Wiki on TCGA Cancer Regulome Project</a>
+</div>
+</body>
+</html>
