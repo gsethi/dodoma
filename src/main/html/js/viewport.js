@@ -32,15 +32,15 @@ Ext.onReady(function() {
             {
                 id: "header-panel",
                 region: "north",
-                height: 100,
+                height: 120,
                 frame: false,
                 layout: {
-                    type: "hbox",
+                    type: "vbox",
                     padding: "3",
                     align: "stretchmax"
                 },
                 items: [
-                    { contentEl: "c_banner", flex: 2, border: false },
+                    { contentEl: "c_banner", flex: 3, border: false },
                     { contentEl: "c_description", flex: 1, border: false }
                 ]
             },
