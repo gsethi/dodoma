@@ -12,7 +12,8 @@
       <useDefaultExcludes>true</useDefaultExcludes>
       <excludes>
         <exclude>**/target/**</exclude>
-        <exclude>**/.svn/**</exclude>
+        <exclude>**/.hg/**</exclude>
+        <exclude>.hgignore</exclude>
         <exclude>*.iml</exclude>
         <exclude>*.ipr</exclude>
         <exclude>*.iws</exclude>
