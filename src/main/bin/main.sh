@@ -13,7 +13,7 @@
 #
 # =================================================================================================================
 
-echo "Path to script: " $DODOMA_SCRIPT_PATH
+#echo "Path to script: " $DODOMA_SCRIPT_PATH
 
 echo "Evaluating Inputs for DoDoMa"
 echo "- inputs:" $1
