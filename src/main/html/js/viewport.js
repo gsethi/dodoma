@@ -63,7 +63,7 @@ Ext.onReady(function() {
                 id: "footer-panel",
                 region: "south",
                 frame: true,
-                height: 30,
+                height: 55,
                 contentEl: "c_footer"
             }
         ]
