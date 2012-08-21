@@ -4,18 +4,25 @@ function selectId(id) {
 }
 
 Ext.onReady(function() {
+    var renderCheckFn = function(val) {
+        if (val && val == true) return "&#10003;";
+        return "";
+    };
+
     var link =  Ext.get("c_search_biomart");
     link.on("click", function() {
         new BioMartMashupSearch({
             fields: [
                 { key: "Accession", name: "accession" },
+                { key: "verified", name: "verified" },
                 { key: "Organism", name: "organism" },
                 { key: "Protein name", name: "protein_name" }
             ],
             columns: [
-                { id: "accession", header: "UniprotID", sortable: true, width: 70 },
-                { id: "organism", header: "Organism", sortable: true, width: 140 },
-                { id: "protein_name", header: "Description", sortable: true }
+                { xtype: 'gridcolumn', id: "accession", header: "UniprotID", sortable: true, width: 70 },
+                { xtype: 'gridcolumn', id: "verified", header: "Reviewed by Uniprot", renderer:renderCheckFn, sortable: true, width: 120 },
+                { xtype: 'gridcolumn', id: "organism", header: "Organism", sortable: true, width: 140 },
+                { xtype: 'gridcolumn', id: "protein_name", header: "Description", sortable: true }
             ],
             listeners: {
                 "select": function(data) {
@@ -38,7 +45,10 @@ BioMartMashupSearch = Ext.extend(Ext.util.Observable, {
 
         this.searchInput = new Ext.form.TextField({ allowBlank: false });
 
-        this.store = new Ext.data.ArrayStore({ fields: this.fields, data: [] });
+        this.store = new Ext.data.ArrayStore({
+            fields: this.fields,
+            data: []
+        });
 
         this.rowSelectionModel = new Ext.grid.RowSelectionModel({singleSelect:true});
         this.rowSelectionModel.on("rowselect", function(selModel, rowIndex, record) {
@@ -106,6 +116,7 @@ BioMartMashupSearch = Ext.extend(Ext.util.Observable, {
         query += '<Attribute name="accession"/>';
         query += '<Attribute name="organism"/>';
         query += '<Attribute name="protein_name"/>';
+        query += '<Attribute name="entry_type"/>';
         query += '</Dataset>';
         query += '</Query>';
 
@@ -127,7 +138,28 @@ BioMartMashupSearch = Ext.extend(Ext.util.Observable, {
         var json = Ext.util.JSON.decode(o.responseText);
         if (json && json.numberOfItems && json.numberOfItems > 0) {
             var data = [];
+            var unsorted_data = json.items;
             Ext.each(json.items, function(item) {
+                var status = item.Status;
+                item["verified"] = (status && status == "Swiss-Prot");
+            });
+
+            var sorted_data = unsorted_data.sort(function(a,b) {
+                if (a && b) {
+                    if (a.verified && !b.verified) return -1;
+                    if (!a.verified && b.verified) return 1;
+
+                    var firstSpecies = "homo sapiens";
+                    var aOrganism = (a.Organism) ? a.Organism.toLowerCase() : "";
+                    var bOrganism = (b.Organism) ? b.Organism.toLowerCase() : "";
+
+                    if (aOrganism == firstSpecies && bOrganism != firstSpecies) return -1;
+                    if (aOrganism != firstSpecies && bOrganism == firstSpecies) return 1;
+                    return a.Organism > b.Organism;
+                }
+            });
+
+            Ext.each(sorted_data, function(item) {
                 var row = [];
                 Ext.each(this.fields, function(field) {
                     row[row.length] = item[field.key];
