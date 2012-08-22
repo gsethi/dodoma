@@ -9,16 +9,14 @@ Ext.onReady(function() {
         tool: "/addama/tools/dodoma",
         latestJob: latestJob,
         gridPanelConfig: {
-            title: "View All Results",
+            title: "All Results",
             frame: true,
-            border: false,
+            border: true,
             autoScroll: true,
             contentEl: "c_jobs_grid",
             height: 400,
-            collapsed: true,
-            collapsible: true,
-            titleCollapse: true,
-            padding: "0 0 0 0"
+            collapsible: false,
+            padding: "5 5 5 5"
         }
     }).grid;
 
@@ -49,14 +47,14 @@ Ext.onReady(function() {
                 frame: true,
                 border: false,
                 contentEl: "c_main",
-                layout: "auto",
+                layout: "border",
                 defaults: {
-                    frame: false, border:false, padding: "5 0 5 0"
+                    frame: false, border:false, padding: "5 5 5 5"
                 },
                 items: [
-                    { contentEl: "c_jobs_form", frame: true },
-                    { contentEl: "c_latest_job" },
-                    new Ext.Panel({ items: [jobsGrid] })
+                    { contentEl: "c_jobs_form", frame: true, region: "north" },
+                    { contentEl: "c_latest_job", region: "west"},
+                    new Ext.Panel({ items: [jobsGrid], region: "center", frame: true, border: true, autoScroll: true })
                 ]
             },
             {

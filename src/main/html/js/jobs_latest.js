@@ -9,7 +9,7 @@ LatestJob = Ext.extend(Object, {
         
         this.renderPanel({
             title: "Execute a search and view result here, or select an item from results below.",
-            collapsed: true
+            collapsed: false
         });
 
         this.setCurrent({
@@ -54,9 +54,8 @@ LatestJob = Ext.extend(Object, {
 
                     this.renderPanel({
                         title: "Search for " + json.label + ": " + status,
-                        collapsed: false,
                         items: [
-                            { html: lineitems.join(", ") }
+                            { html: lineitems.join("<br/>") }
                         ],
                         buttons: [
                             new Ext.Button({ text: "Show Detailed Results", handler: this.showPwmSummary, scope: this })
@@ -65,9 +64,8 @@ LatestJob = Ext.extend(Object, {
                 } else {
                     this.renderPanel({
                         title: "Search for " + json.label + ": " + status,
-                        collapsed: true,
                         items: [
-                            { html: lineitems.join(", ") }                            
+                            { html: lineitems.join("<br/>") }
                         ]
                     });
                 }
@@ -85,8 +83,7 @@ LatestJob = Ext.extend(Object, {
         var defaultConfig = {
             title: "Results",
             renderTo: "c_latest_job",
-            collapsible: true,
-            titleCollapse: true,
+            collapsed: false,
             frame: true,
             buttonAlign: "left"
         };
